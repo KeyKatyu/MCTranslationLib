@@ -1,6 +1,9 @@
 # MCTranslationLib
 A Java library for translating Minecraft elements using their translation key!
 
+> ℹ️ **Minecraft version supported**  
+> MC **1.20.1** and and below
+
 ## How to use
 
 > Get the latest version [![](https://jitpack.io/v/KeyKatyu/MCTranslationLib.svg)](https://jitpack.io/#KeyKatyu/MCTranslationLib)   

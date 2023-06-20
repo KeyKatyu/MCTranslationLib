@@ -35,18 +35,18 @@ public class MCTranslator {
         return translate(translatable.getTranslationKey(), language);
     }
 
-    public static String translateKeyed(TranslationType type, Keyed keyed, Language language) {
+    public static String translateKeyed(KeyedType type, Keyed keyed, Language language) {
         NamespacedKey namespacedKey = keyed.getKey();
         return translate(type.getPrefix() + "." + namespacedKey.getNamespace() + "." + namespacedKey.getKey(), language);
     }
 
-    public enum TranslationType {
+    public enum KeyedType {
         ENCHANTMENT("enchantment"),
         POTION_EFFECT("effect");
 
         private final String prefix;
 
-        TranslationType(String prefix) {
+        KeyedType(String prefix) {
             this.prefix = prefix;
         }
 
