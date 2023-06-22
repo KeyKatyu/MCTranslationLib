@@ -44,7 +44,7 @@ public enum Language {
     FIL_PH("fil_ph.json"),
     FO_FO("fo_fo.json"),
     FR_CA("fr_ca.json"),
-    FR_FR("lang/fr_fr.json"),
+    FR_FR("fr_fr.json"),
     FRA_DE("fra_de.json"),
     FUR_IT("fur_it.json"),
     FY_NL("fy_nl.json"),
