@@ -32,6 +32,7 @@ public enum Language {
     EN_NZ("en_nz"),
     EN_PT("en_pt"),
     EN_UD("en_ud"),
+    EN_US("en_us"),
     ENP("enp"),
     ENWS("enws"),
     EO_UY("eo_uy"),
