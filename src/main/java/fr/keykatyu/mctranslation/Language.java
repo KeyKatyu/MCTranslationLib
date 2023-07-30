@@ -144,6 +144,11 @@ public enum Language {
         this.fileName = fileName;
     }
 
+    /**
+     * Get the MCTranslator language from a Locale
+     * @param locale The Locale
+     * @return The Language from the locale, or {@link Language#EN_US} if not found
+     */
     public static Language fromLocale(Locale locale) {
         final String localeString = String.format("%s_%s", locale.getLanguage(), locale.getCountry());
         for (Language language : VALUES) {
@@ -151,33 +156,40 @@ public enum Language {
                 return language;
             }
         }
-        return null;
+        return Language.EN_US;
     }
 
+    /**
+     * Get the MCTranslator language from a locale string
+     * @param locale The locale string
+     * @return The Language from the locale, or {@link Language#EN_US} if not found
+     */
     public static Language fromLocale(String locale) {
         for (Language language : VALUES) {
             if (locale.equalsIgnoreCase(language.getFileName())) {
                 return language;
             }
         }
-        return null;
+        return Language.EN_US;
     }
 
+    /**
+     * Get the MCTranslator language from the player client Locale
+     * @param player The player
+     * @return The Language
+     */
     public static Language fromPlayer(Player player) {
         return fromLocale(player.getLocale());
     }
 
     @Nullable
     public Locale toLocale() {
-
         if(!getFileName().contains("_")) {
             return null;
         }
-
         final String[] args = getFileName().split("_", 1);
         final String language = args[0].toLowerCase(Locale.ROOT);
         final String country = args[1].toUpperCase(Locale.ROOT);
-
         return new Locale(language, country);
     }
 
