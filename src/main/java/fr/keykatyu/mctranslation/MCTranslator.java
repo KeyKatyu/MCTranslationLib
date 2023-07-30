@@ -11,8 +11,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
 
 public class MCTranslator {
+
+    private final static Logger LOGGER = Logger.getLogger("MCTranslator");
 
     /**
      * Basic method to translate, using a translation key and a language
@@ -31,14 +34,14 @@ public class MCTranslator {
             reader.close();
             JsonElement translatedElement = translatorObj.get(key);
             if(translatedElement == null) {
-                System.out.println("[MCTranslator] (ERROR) An error occurred while retrieving the translation. It may not exist.");
+                LOGGER.severe("(ERROR) An error occurred while retrieving the translation. It may not exist.");
                 return null;
             }
             return translatedElement.getAsString();
         } catch (NullPointerException e) {
-            System.out.println("[MCTranslator] (ERROR) An error occurred while retrieving the translation file. It may not exist.");
+            LOGGER.severe("(ERROR) An error occurred while retrieving the translation file. It may not exist.");
         } catch (IOException e) {
-            System.out.println("[MCTranslator] (ERROR) An error occured while closing the java Reader.");
+            LOGGER.severe("(ERROR) An error occurred while closing the java Reader.");
         }
         return null;
     }
@@ -67,7 +70,8 @@ public class MCTranslator {
 
     public enum KeyedType {
         ENCHANTMENT("enchantment"),
-        POTION_EFFECT("effect");
+        POTION_EFFECT("effect"),
+        ;
 
         private final String prefix;
 
@@ -79,5 +83,4 @@ public class MCTranslator {
             return prefix;
         }
     }
-
 }
