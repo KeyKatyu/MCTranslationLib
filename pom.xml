@@ -6,7 +6,8 @@
 
     <groupId>fr.keykatyu.mctranslation</groupId>
     <artifactId>MCTranslationLib</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
+    <description>A Java Spigot library for translating Minecraft elements using their translation key</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,14 +24,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.10.1</version>
-        </dependency>
-        <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.20.1-R0.1-SNAPSHOT</version>
+            <version>1.20.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

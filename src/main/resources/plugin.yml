@@ -1,0 +1,6 @@
+name: MCTranslationLib
+version: '1.2.4'
+main: fr.keykatyu.mctranslation.Main
+api-version: '1.20'
+authors: [KeyKatyu]
+description: 'A Java Spigot library for translating Minecraft elements using their translation key.'

@@ -1,4 +1,4 @@
-package fr.keykatyu.mctranslation;
+package fr.keykatyu.mctranslation.api;
 
 import org.bukkit.entity.Player;
 

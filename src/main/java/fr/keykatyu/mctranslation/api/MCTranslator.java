@@ -1,4 +1,4 @@
-package fr.keykatyu.mctranslation;
+package fr.keykatyu.mctranslation.api;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
