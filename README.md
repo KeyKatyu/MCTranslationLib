@@ -5,8 +5,8 @@ A Java Spigot library for **translating Minecraft elements** using their **trans
 
 ## ℹ️ Minecraft versions supported  
 
-> ➡️ **MC 1.20.1 AND BELOW** (normally)  
-> The files are taken from **Minecraft version 1.20.1**.  
+> ➡️ **MC 1.20.2 AND BELOW** (normally)  
+> The files are taken from **Minecraft version 1.20.2**.  
 > If your translation is not found, or differs between versions, 
 > there is no point in making a claim as it cannot be corrected. 
 
@@ -16,6 +16,7 @@ A Java Spigot library for **translating Minecraft elements** using their **trans
 > Add the lib to your project dependencies.  
 > Then, use the methods in the MCTranslator class to translate !
 
+> **If you don't have the plugin into your server's plugins directory :**  
 > ⚠️ Don't forget to **include** the **translation file** into your plugin/project compilation.
 > If you don't, you will get a file not found error.
 
