@@ -129,6 +129,7 @@ public enum Language {
     VAL_ES("val_es"),
     VEC_IT("vec_it"),
     VI_VN("vi_vn"),
+    VP_VL("vp_vl"),
     YI_DE("yi_de"),
     YO_NG("yo_ng"),
     ZH_CN("zh_cn"),
