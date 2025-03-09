@@ -1,4 +1,4 @@
-# MCTranslationLib | <= MC 1.21.3
+# MCTranslationLib | <= MC 1.21.4
 
 A Java Spigot library for **translating Minecraft elements** using their **translation key** !  
 ➡️ **Look at the library [SpigotMC page](https://www.spigotmc.org/resources/mctranslationlib.110678/)** :D

@@ -103,6 +103,7 @@ public enum Language {
     OC_FR("oc_fr"),
     OVD("ovd"),
     PL_PL("pl_pl"),
+    PLS("pls"),
     PT_BR("pt_br"),
     PT_PT("pt_pt"),
     QYA_AA("qya_aa"),
@@ -139,8 +140,7 @@ public enum Language {
     ZH_CN("zh_cn"),
     ZH_HK("zh_hk"),
     ZH_TW("zh_tw"),
-    ZLM_ARAB("zlm_arab"),
-    ;
+    ZLM_ARAB("zlm_arab");
 
     private final static Language[] VALUES = Language.values();
     private final String fileName;
