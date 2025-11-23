@@ -1,5 +1,6 @@
 package fr.keykatyu.mctranslation.api;
 
+import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -13,9 +14,14 @@ import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 
-public class MCTranslator {
+/**
+ * API entry point for MC translations
+ */
+public final class MCTranslator {
 
-    private final static Logger LOGGER = Logger.getLogger("MCTranslator");
+    private static final Logger LOGGER = Logger.getLogger("MCTranslator");
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+    private static final TranslationsCache CACHE = new TranslationsCache();
 
     /**
      * Basic method to translate, using a translation key and a language
@@ -24,14 +30,20 @@ public class MCTranslator {
      * @return The translated string, or null if not found
      */
     public static String translate(String key, Language language) {
-        try {
-            Reader reader = new InputStreamReader(MCTranslator.class.getClassLoader().getResourceAsStream("lang/" + language.getResourcePath()), StandardCharsets.UTF_8);
-            JsonObject translatorObj = new GsonBuilder()
-                    .setPrettyPrinting()
-                    .disableHtmlEscaping()
-                    .create()
-                    .fromJson(reader, JsonObject.class);
-            reader.close();
+        // Try to lookup in cache first
+        if(CACHE.has(language)) {
+            JsonElement translatedElement = CACHE.get(language, key);
+            if(translatedElement == null) {
+                LOGGER.severe("(ERROR) Key \"" + key + "\" not found in cache for language " + language.name());
+                return null;
+            }
+            return translatedElement.getAsString();
+        }
+
+        // Only then do the I/O
+        try(Reader reader = new InputStreamReader(MCTranslator.class.getClassLoader().getResourceAsStream("lang/" + language.getResourcePath()), StandardCharsets.UTF_8)) {
+            JsonObject translatorObj = GSON.fromJson(reader, JsonObject.class);
+            CACHE.cache(language, translatorObj);
             JsonElement translatedElement = translatorObj.get(key);
             if(translatedElement == null) {
                 LOGGER.severe("(ERROR) An error occurred while retrieving the translation. It may not exist.");
